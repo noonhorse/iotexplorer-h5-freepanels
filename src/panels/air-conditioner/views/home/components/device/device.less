@@ -1,0 +1,40 @@
+.device-wrap {
+  width: 100%;
+  height: 860px;
+  position: relative;
+  > .icon-theme-air_conditioner {
+    width: 945px;
+    display: block;
+    margin: 0 auto;
+    padding: 68px 0;
+    fill: red;
+  }
+  > .icon-theme-air_cloud {
+    position: relative;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeInOut 5s ease-in-out 1s infinite;
+    fill: #8FCDFF;
+  }
+  .content {
+    position: absolute;
+    top: 607px;
+    width: 100%;
+    text-align: center;
+    .text-primary {
+      margin-bottom: 66px;
+      font-size: 80px;
+      line-height: 1;
+      > span {
+        display: inline-block;
+        font-weight: bold;
+        transform: scaleY(1.6);
+      }
+      > i {
+        position: relative;
+        top: -15px;
+      }
+    }
+  }
+}

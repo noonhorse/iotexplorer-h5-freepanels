@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
@@ -7,6 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const autoPreFixer = require('autoprefixer');
 const postcss = require('postcss-pxtorem');
+
 class ModifiedMiniCssExtractPlugin extends MiniCssExtractPlugin {
   getCssChunkObject(mainChunk) {
     return {};
@@ -21,7 +23,7 @@ module.exports = (env, argv) => {
   const outputPath = path.join(rootPath, 'dist', isDevMode ? 'debug' : 'release');
 
   const entry = {};
-
+  const theme = 'normal';
   Object.keys(panelConfig).forEach((categoryKey) => {
     const { enable, panels } = panelConfig[categoryKey];
 
@@ -179,10 +181,19 @@ module.exports = (env, argv) => {
       isDevMode && new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(mode),
+        _BUSINESS_: JSON.stringify({
+          theme_type: theme,
+        }),
       }),
       new ModifiedMiniCssExtractPlugin({
         filename: isDevMode ? '[name].css' : '[name].[contenthash:10].css',
       }),
+      // new OptimizeCSSAssetsPlugin({
+      //   cssProcessorOptions: {
+      //     discardComments: { removeAll: true },
+      //     autoprefixer: { disable: true },
+      //   },
+      // }),
     ].filter(Boolean),
     // stats: { children: false },
   };

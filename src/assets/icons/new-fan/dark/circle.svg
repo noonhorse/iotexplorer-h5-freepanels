@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="850px" height="850px" viewBox="0 0 850 850" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>正常</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.485723586">
+        <g id="暗色" transform="translate(-136.000000, -1366.000000)">
+            <g id="编组" transform="translate(136.000000, 375.000000)">
+                <g id="正常" transform="translate(72.000000, 1063.000000)">
+                    <ellipse id="椭圆形" stroke="#0DDFFE" stroke-width="4" cx="353" cy="353.5" rx="351" ry="351.5"></ellipse>
+                    <ellipse id="椭圆形" stroke="#0DDFFE" stroke-width="4" opacity="0.8" cx="353" cy="353.5" rx="324.547804" ry="325.010336"></ellipse>
+                    <ellipse id="椭圆形" stroke="#0DDFFE" stroke-width="3" opacity="0.6" cx="353" cy="353.5" rx="299.507752" ry="299.934109"></ellipse>
+                    <ellipse id="椭圆形" stroke="#0DDFFE" stroke-width="2" opacity="0.4" cx="353" cy="353.5" rx="273.555556" ry="273.944444"></ellipse>
+                    <ellipse id="椭圆形" stroke="#0F0F0F" opacity="0.2" cx="353" cy="353.5" rx="244.866925" ry="245.21447"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

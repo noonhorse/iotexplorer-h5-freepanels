@@ -2,8 +2,11 @@ import _ from '@underscore';
 import { RefAttributes, ForwardRefExoticComponent } from 'react';
 import urlParse from 'url-parse';
 import querystring from 'query-string';
+export const noop = (arg) => {
+  console.log(`noop:${arg}`);
+};
 
-export const delay = timeout => new Promise(resolve => setTimeout(() => resolve(), timeout));
+export const delay = timeout => new Promise(resolve => setTimeout(data => resolve(data), timeout));
 
 export const genReqId = () => `${Date.now().toString()}-${Math.floor(Math.random() * 10000)}`;
 
@@ -14,7 +17,7 @@ export const getStrLen = (str) => {
   for (let i = 0; i < str.length; i++) {
     const c = str.charCodeAt(i); // 单字节加1
     if ((c >= 0x0001 && c <= 0x007e) || (c >= 0xff60 && c <= 0xff9f)) {
-      len++;
+      len += 1;
     } else {
       len += 2;
     }
@@ -106,7 +109,6 @@ export function getStandardDate(dateStr) {
   let date = new Date(dateStr);
 
   // 先尝试直接new，如果不合法再继续走
-  // @ts-ignore
   // eslint-disable-next-line no-restricted-globals
   if (!isNaN(date)) {
     return date;
@@ -225,10 +227,6 @@ export function flattenArray(input, prefix = '') {
   return output;
 }
 
-// @ts-ignore
-export const noop = (a?: any): void => {
-};
-
 export function defineMap2SelectorList(defineMap: { [propName: string]: string }): SelectorOption[] {
   const result: { value: string; text: string }[] = [];
 
@@ -276,8 +274,8 @@ export function getPrecision(value) {
   }
   return 0;
 }
-
-export async function fetchAllList<T>(fetchFn: (props: { offset: number; limit: number }) => Promise<ListResponse<T>>): Promise<T[]> {
+type paging = { offset: number; limit: number }
+export async function fetchAllList<T>(fetchFn: (props: paging) => Promise<ListResponse<T>>): Promise<T[]> {
   const limit = 100;
   let offset = 0;
   let total = 100;
@@ -443,7 +441,7 @@ export function mergeConnectDeviceConfig(defaultConfig, config) {
       if (config[section][key] !== '' && config[section][key] !== undefined) {
         mergedConfig[section][key] = config[section][key];
       }
-    })
+    });
   });
   return mergedConfig;
 }
@@ -500,15 +498,15 @@ export function subscribeStore({
 }
 
 export function isH5PanelAvailable(productConfig) {
-  return productConfig &&
-    productConfig.Panel &&
-    productConfig.Panel.h5 && (
-      productConfig.Panel.h5.url || (
-        productConfig.Panel.h5.release &&
-        productConfig.Panel.h5.release.scripts &&
-        productConfig.Panel.h5.release.scripts.length
-      )
-    );
+  return productConfig
+    && productConfig.Panel
+    && productConfig.Panel.h5 && (
+    productConfig.Panel.h5.url || (
+      productConfig.Panel.h5.release
+        && productConfig.Panel.h5.release.scripts
+        && productConfig.Panel.h5.release.scripts.length
+    )
+  );
 }
 
 export function isFullScreen() {
@@ -544,13 +542,11 @@ export const rpx2px = (rpx: number): number => {
   return (rpx / 2) * (Math.min(640, clientWidth) / 375);
 };
 
-export const px2rem = (px, withUnit?: any) => {
-  return rpx2rem(px2rpx(px), withUnit);
-}
+export const px2rem = (px, withUnit?: any) => rpx2rem(px2rpx(px), withUnit);
 
 export function rpx2rem(rpx, withUnit?: true): string;
 export function rpx2rem(rpx, withUnit?: false): number;
-export function rpx2rem(rpx, withUnit: boolean = true) {
+export function rpx2rem(rpx, withUnit = true) {
   const rem = rpx / 46.875;
 
   if (withUnit) {

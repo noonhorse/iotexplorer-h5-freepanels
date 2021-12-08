@@ -1,0 +1,22 @@
+.icon-check-bg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--global-color-lighter);
+  }
+  &.checked {
+    background-color: var(--global-color-primary);
+    svg {
+      width: 60px;
+      height: 60px;
+      stroke: var(--global-color-white);
+    }
+  }
+}

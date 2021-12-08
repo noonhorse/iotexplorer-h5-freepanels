@@ -1,4 +1,4 @@
-import { getModalName } from '@src/panels/FiveRoadHub/panel-default/models';
+import { getModalName } from '@src/panels/FiveRoadHub/default/models';
 import { useAsyncFetch } from './useAsyncFetch';
 import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
 export function useSwitchEditName({

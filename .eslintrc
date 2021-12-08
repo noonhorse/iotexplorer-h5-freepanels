@@ -14,7 +14,8 @@
     "wx": true,
     "DEFAULT_UIN": true,
     "CLOUD_FN_ENV": true,
-    "requirePlugin": true
+    "requirePlugin": true,
+    "_BUSINESS_": true,
   },
   "rules": {
     "no-mixed-operators": [

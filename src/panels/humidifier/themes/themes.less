@@ -1,0 +1,577 @@
+/*蓝白主题*/
+.color_primary() {
+  color: var(--global-color-white);
+  fill: var(--global-color-white);
+}
+body.theme_normal {
+  .home.power-off {
+    svg {
+      fill: #C9D4DD;
+    }
+  }
+}
+/*蓝白*/
+.theme_blue_white {
+  height: 100%;
+  position: relative;
+  .home {
+    .color_primary;
+    background-image: var(--global-background-color-gradient);
+
+    /*电源控制组合*/
+    .power-tools-bar {
+      button:first-child,button:last-child {
+        background: rgba(254,254,254,0.20);
+        svg {
+          .color_primary;
+        }
+      }
+      #power {
+        background-color: #FFFFFF;
+        svg {
+          fill: var(--global-color-primary);
+        }
+      }
+    }
+
+    .tools-bar {
+      transform: translateY(650px);
+      .button .label {
+        color: #0F0F0F;
+        font-weight: 600;
+      }
+    }
+
+    &.power-off {
+      #power {
+        svg {
+          fill: #A6AFC2;
+        }
+      }
+      .tools-bar {
+        svg {
+          fill: #A6AFC2;
+        }
+        .button .label {
+          color: #A6AFC2 !important;
+        }
+      }
+    }
+
+    .slider-wrap{
+      .slider-bg {
+        background: rgba(254,254,254,0.20);
+      }
+      .adm-slider-thumb {
+        background: #006FFF !important;
+        border: 3px solid #FFFFFF;
+      }
+    }
+  }
+
+  .active {
+    .color_primary;
+  }
+
+  /*环境温度和湿度*/
+  .environment-wrap {
+    color: #FEFEFE ;
+    .line {
+      height: 120px;
+      transform: translateY(-20px);
+      background-color: #F6F7F7;
+    }
+    strong {
+      .color_primary;
+      i {
+        position: relative;
+        top: -25px;
+      }
+      & + div {
+        margin-top: 20px;
+      }
+    }
+    .scale-wrap {
+      display: inline-block;
+      transform: scaleY(1.8);
+      font-weight: bold;
+    }
+  }
+
+  .border-bottom {
+    border-bottom: 0;
+  }
+
+  .position-wrap li {
+    color: #FEFEFE;
+    strong {
+      .color_primary;
+    }
+  }
+
+  /*详情*/
+  .detail {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    .power-tools-bar, .environment {
+      position: relative;
+      top: -500px;
+    }
+  }
+
+  .modal-body .adm-list-item-content-prefix {
+    color: #0F0F0F !important;
+  }
+
+  /*switch*/
+  ._component_base_switch_ .switch-inner.is_checked {
+    background: linear-gradient(90deg, #559DFC 3%, #3171FA 98%);
+  }
+
+  /*更多*/
+  .more-wrap {
+    .temperatureUnit-wrap {
+      .button-inner {
+        background-color: #B5C4D1;
+        .adm-list-item-content {
+          border-bottom-color: #2D3A49 ;
+        }
+      }
+    }
+  }
+
+  .slider-fill-bg {
+    background: #FFFFFF !important;
+  }
+}
+
+/**/
+.theme_dark {
+  padding-top: 93px;
+  position: relative;
+  .home {
+    .border-bottom {
+      border: 0;
+    }
+    >.title {
+      width: 100%;
+      position: absolute;
+      top: 793px;
+      margin: 0;
+      padding: 0;
+    }
+    .tools-bar {
+      width: 100%;
+      position: absolute;
+      top: 1353px;
+      .button {
+        &:first-child {
+          margin-left: 30px;
+        }
+        &:last-child {
+          margin-right: 30px;
+        }
+      }
+    }
+    .detail {
+      .power-tools-bar {
+        width: 100%;
+        padding: 0;
+        position: absolute;
+        top: 780px;
+        z-index: 10;
+        #power {
+          width: 260px;
+          height: 260px;
+          position: relative;
+          top: 140px;
+          z-index: 10;
+          border: 30px solid var(--global-background-color);
+          //box-shadow: 0 6px 0 3px rgba(62,68,84,0.20);
+          background-image: linear-gradient(137deg, #FF3A5F 0%, #EA0D40 100%);
+        }
+      }
+      .environment {
+        width: 100%;
+        position: absolute;
+        top: 1000px;
+        .environment-wrap {
+          display: flex;
+          margin:56px 77px;
+          padding: 0;
+          //padding: 97px 0 67px;
+          //border-radius: 70px;
+          .temperature, .line, .humidity {
+            flex: .4;
+            width: 300px;
+            height: 252px;
+            background-image: linear-gradient(180deg, #333E4D 0%, #202C3A 100%);
+            border: 3px solid rgba(62,68,84,0.20);
+            color: var(--global-color-lighter);
+          }
+          .line {
+            //width: 100px;
+            height: 348px;
+            flex: .2;
+            top: 0;
+            border-right: 0;
+            border-left: 0;
+            margin: 0 -15px;
+          }
+          .temperature {
+            padding-top: 97px;
+            border-radius: 70px 130px 0 70px;
+          }
+          .humidity {
+            padding-top: 97px;
+            border-radius: 130px 70px 70px 0;
+          }
+          strong {
+            i {
+              position: relative;
+              top: -25px;
+            }
+            & + div {
+              margin-top: 20px;
+            }
+          }
+          .scale-wrap {
+            display: inline-block;
+            transform: scaleY(1.8);
+            font-weight: bold;
+          }
+        }
+      }
+      .position-wrap {
+        width: 100%;
+        padding: 40px 0 0;
+        position: absolute;
+        top: 2122px;
+        border-top: 1px solid var(--global-color-border);
+        > ul {
+          padding: 40px 90px 80px;
+          li {
+            color: var(--global-color-lighter);
+            > strong {
+              color: var(--global-color-white);
+            }
+          }
+        }
+        * {
+          background-color: transparent;
+        }
+      }
+    }
+    .set-temp-wrap {
+      position: relative;
+      top: 950px;
+      //width: 100%;
+    }
+    &.power-off {
+      #power {
+        background: #FFFFFF !important;
+        svg {
+          fill: #000000 !important;
+        }
+      }
+    }
+  }
+  /*card背景 按钮背景*/
+  .adm-card, .tools-bar .button, .button-circle{
+    background-image: linear-gradient(180deg, #333E4D 0%, #202C3A 100%);
+    border: 3px solid rgba(62,68,84,0.20);
+    .adm-list {
+      background-color: transparent;
+      .adm-list-item-content-extra {
+        color: var(--global-color-lighter);
+      }
+    }
+  }
+  .detail {
+    background-color: transparent;
+  }
+
+  /*switch*/
+  ._component_base_switch_ .switch-inner.is_checked {
+    background-image: linear-gradient(137deg, #00F0FF 0%, #704DF0 100%);
+    box-shadow: 0 6px 100px 0 rgba(32,33,33,0.10);
+  }
+  .icon-check-bg.checked {
+    background-image: linear-gradient(137deg, #00F0FF 0%, #704DF0 100%);
+    box-shadow: 0 6px 100px 0 rgba(32,33,33,0.10);
+  }
+
+  /*更多*/
+  .more-wrap {
+    margin-top: -60px;
+    padding-top: 0;
+    background: transparent;
+    .temperatureUnit-wrap {
+      color: #FEFEFE;
+      .button-inner {
+        //background: #222633;
+        box-shadow: 0 6px 100px 0 rgba(32,33,33,0.10);
+        .adm-list-item-content {
+          border-bottom-color: #2D3A49 ;
+        }
+      }
+    }
+  }
+
+  /*dialog*/
+  ._component_base_modal_ {
+    .modal-inner, button {
+      color: var(--global-color-white);
+      &.button-cancel {
+        color: #959EB1;
+      }
+    }
+    background-image: linear-gradient(139deg, #333E4D 0%, #202C3A 100%);
+    .adm-list,.modal-footer .footer-buttons button {
+      background: none;
+    }
+    .modal-footer {
+      border-top-color: var(--global-color-border-dark);
+    }
+  }
+
+}
+
+body.theme_colorful {
+  height: 130%;
+  color: var(--global-color-text-regular);
+  .active {
+    color: var(--global-color-text-primary);
+  }
+  .home {
+    position: relative;
+    > .title {
+      opacity: 0;
+      height: 80px;
+    }
+    &.power-off {
+      #power {
+        background: var(--global-color-primary) !important;
+        svg {
+          //fill: #000000 !important;
+        }
+      }
+    }
+    .dashboard {
+      margin-top: 245px;
+    }
+    .environment-wrap {
+      width: 100%;
+      position: absolute;
+      top: 98px;
+      .line {
+        opacity: 0;
+      }
+    }
+    .power-tools-bar {
+      width: 100%;
+      padding: 0;
+      position: absolute;
+      top: 1236px;
+      justify-content: space-evenly;
+      .add, .reduce {
+        svg {
+          fill: #667994;
+        }
+      }
+    }
+    .tools-bar {
+      width: 100%;
+      padding: 0;
+      position: absolute;
+      top: 1555px;
+      margin-top: 0;
+      .button .label {
+        color: var(--global-color-text-primary);
+      }
+    }
+    .detail {
+      background: transparent;
+      box-shadow: none;
+      .border-bottom {
+        border: 0;
+      }
+      .position-wrap {
+        width: 100%;
+        margin-top: 40px;
+        position: absolute;
+        top: 2150px;
+        border-top: 1px solid var(--global-color-border);
+        padding: 70px 0 40px 0;
+        .flex {
+          justify-content: space-evenly;
+        }
+      }
+      .set-temp-wrap {
+        position: relative;
+        top: 600px;
+      }
+    }
+  }
+  .more-wrap {
+    color: var(--global-color-black);
+    ._component_base_switch_ .switch-inner.is_checked{
+      background-image: linear-gradient(180deg, #2CE74F 0%, #00E1AD 100%);
+    }
+    ._component_base_button_ {
+      .button-inner {
+        background: #B5C4D1;
+      }
+      &.active .button-inner {
+        background: #006FFF !important;
+      }
+    }
+  }
+  .adm-radio {
+    .icon-check-bg.checked {
+      background: #EE2B21;
+      svg {
+        stroke: #FFFFFF;
+      }
+    }
+  }
+}
+
+body.theme_morandi {
+  height: 120%;
+  position: relative;
+  background-image: var(--global-background-color-gradient);
+  .active {
+    color: var(--global-color-white);
+  }
+  .home {
+    > .title {
+      display: none;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 1080px;
+      background: #F4F8FB;
+      position: absolute;
+      top: 1050px;
+      z-index: 0;
+    }
+    #power {
+      background: #414B5B;
+      svg {
+        fill: var(--global-color-white) !important;
+      }
+    }
+    &.power-off {
+      #power {
+        background: #909CAB;
+      }
+      svg {
+        fill: #909CAB !important;
+      }
+      .active {
+        color: #909CAB !important;
+      }
+    }
+    .environment {
+      width: 100%;
+      position: absolute;
+      top: calc(1026px - 245px);
+      .line {
+        opacity: 0;
+      }
+      .environment-wrap {
+        padding: 0;
+        color: #B5C4D1;
+      }
+    }
+
+    .dashboard {
+      margin-top: 108px;
+    }
+    .power-tools-bar {
+      width: 100%;
+      padding: 0;
+      position: absolute;
+      top: calc(1373px - 245px);
+      justify-content: space-evenly;
+      z-index: 1;
+    }
+    .tools-bar {
+      width: 100%;
+      padding: 0;
+      position: absolute;
+      top: calc(1655px - 245px);
+      margin-top: 0;
+      z-index: 1;
+      .button {
+        svg {
+          fill: var(--global-color-primary);
+        }
+        .label {
+          color: var(--global-color-text-primary);
+        }
+      }
+    }
+    .detail {
+      background: transparent;
+      box-shadow: none;
+      .border-bottom {
+        border: 0;
+      }
+      .set-temp-wrap {
+        position: relative;
+        top: 950px;
+        z-index: 9;
+        color: var(--global-color-text-primary);
+      }
+      .position-wrap {
+        width: 100%;
+        position: absolute;
+        top: calc(2250px - 245px);
+        border-top: 1px solid var(--global-color-border);
+        padding: 70px 0 40px 0;
+        z-index: 1;
+        background: #F4F8FB;
+        .flex {
+          justify-content: space-evenly;
+        }
+        .active {
+          color: var(--global-color-primary);
+        }
+      }
+    }
+  }
+  .more-wrap {
+    color: var(--global-color-black);
+    ._component_base_switch_ .switch-inner.is_checked{
+      background: var(--global-color-primary);
+    }
+    ._component_base_button_.button_theme_normal {
+      .button-inner {
+        background: var(--global-color-lighter);
+      }
+      &.active .button-inner {
+        background: var(--global-color-primary);
+      }
+    }
+
+    .adm-list .adm-list-item {
+      .adm-list-item-content {
+        border-bottom: 3px solid rgba(181,196,209,0.50);
+      }
+      &:last-child {
+        .adm-list-item-content {
+          border-bottom: 0;
+        }
+      }
+    }
+    ._component_base_modal_ {
+      .adm-list-item-content {
+        border-bottom:0 !important;
+      }
+    }
+  }
+}

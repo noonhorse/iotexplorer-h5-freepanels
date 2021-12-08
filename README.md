@@ -8,17 +8,17 @@
 
 1. `npm install`
    
-2. 启动指定面板 `npm run dev --category=FiveRoadLight --panel=panel-default`
+2. 启动指定面板 `npm run dev --category=FiveRoadLight --panel=default`
 
 3. 编译出来的脚本和样式地址为：
 ``` javascript
 // js地址：
-https://127.0.0.1:9000/FiveRoadLight_panel-default.js
+https://127.0.0.1:9000/FiveRoadLight_default.js
 
 // css地址：
-https://127.0.0.1:9000/FiveRoadLight_panel-default.css
+https://127.0.0.1:9000/FiveRoadLight_default.css
 
-其中 'FiveRoadLight' 为前面命令行指定的 `category` 参数，'panel-default' 为前面命令行指定的 `panel` 参数
+其中 'FiveRoadLight' 为前面命令行指定的 `category` 参数，'default' 为前面命令行指定的 `panel` 参数
 ```
 
 4.新开发的面板需添加配置
@@ -63,8 +63,8 @@ http://c.biancheng.net/python_spider/SwitchyOmega.html
 可以在线拼接调试地址(见调试)，也可以通过小程序长按获取已配置设备联调的h5页面地址。
 ```
 # 通过在whistle 的 rule 中配置代理规则，可以实现代理到本地服务的功能。
-developing.script/developing.js https://127.0.0.1:9000/FiveRoadLight_panel-default.js
-developing.style/developing.css https://127.0.0.1:9000/FiveRoadLight_panel-default.css
+developing.script/developing.js https://127.0.0.1:9000/FiveRoadLight_default.js
+developing.style/developing.css https://127.0.0.1:9000/FiveRoadLight_default.css
 ```
 
 ### 调试与展示

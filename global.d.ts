@@ -1,13 +1,14 @@
-declare module "*.png";
-declare module "*.gif";
-declare module "*.jpg";
-declare module "*.jpeg";
-declare module "*.svg";
-declare module "*.css";
-declare module "*.less";
-declare module "*.scss";
-declare module "*.sass";
-declare module "*.styl";
+declare module '*.png';
+declare module '*.gif';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.svg';
+declare module '*.css';
+declare module '*.less';
+declare module '*.scss';
+declare module '*.sass';
+declare module '*.styl';
+declare module 'qcloud-iotexplorer-h5-panel-sdk';
 declare const wx;
 
 /**
@@ -40,18 +41,42 @@ declare interface ReducerAction<T> {
   payload?: any;
 }
 
-declare interface TemplatePropertyConfig {
+declare interface TemplateData {
   id: string;
   name: string;
   mode: string;
   define: {
     type: string;
-    mapping?: object;
-    min?: string;
-    max?: string;
-    start?: string;
-    step?: string;
-    unit?: string;
+    mapping: HashMap;
+    min: string | number;
+    max: string | number;
+    start: string | number;
+    step: string | number;
+    unit: string;
   };
+  desc?: string;
   required?: boolean;
+}
+
+declare interface HashMap {
+  [key: string]: string | number | boolean | HashMap | any[];
+}
+
+// 主题类型 normal-黑白色 blueWhite-蓝白色 dark-暗黑色 colorful-多彩色 morandi-莫兰迪色
+export declare type ThemeType =
+  | 'normal'
+  | 'blueWhite'
+  | 'dark'
+  | 'colorful'
+  | 'morandi';
+
+// eslint-disable-next-line no-unused-vars
+declare interface ThemeProps {
+  theme?: ThemeType;
+}
+
+declare module 'qcloud-iotexplorer-h5-panel-sdk';
+
+export interface stringKey {
+  [key: string]: string;
 }

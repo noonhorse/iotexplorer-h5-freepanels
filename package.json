@@ -27,6 +27,7 @@
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
+    "antd-mobile": "^2.3.4",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.4",
     "event-emitter-for-miniprogram": "0.0.6",

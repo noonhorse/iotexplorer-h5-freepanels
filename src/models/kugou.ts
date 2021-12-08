@@ -1,6 +1,6 @@
-import Toast from '@src/panels/KugouMusic/panel-default/components/Toast/Toast';
-import { TMESDK } from '@src/panels/KugouMusic/panel-default/types';
-import { CUR_SONG_ID_KEY, SONG_INDEX_KEY } from '@src/panels/KugouMusic/panel-default/constants';
+import Toast from '@src/panels/KugouMusic/default/components/Toast/Toast';
+import { TMESDK } from '@src/panels/KugouMusic/default/types';
+import { CUR_SONG_ID_KEY, SONG_INDEX_KEY } from '@src/panels/KugouMusic/default/constants';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
