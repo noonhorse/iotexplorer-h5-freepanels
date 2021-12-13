@@ -6,8 +6,9 @@
  * @LastEditTime:
  */
 
-import React, { useState } from 'react';
 import './style.less';
+
+import React, { useState } from 'react';
 
 const icon = require('@/assets/icons/common/icon.svg');
 const add = require('@/assets/icons/common/add.svg');
@@ -24,7 +25,7 @@ const MySvg = () => {
     <div>
       <button onClick={handleClick}>TEST</button>
       <img src={src} alt="" />
-      {/*<svg className="icon">
+      {/* <svg className="icon">
           <use xlinkHref={add} />
         </svg>*/}
     </div>

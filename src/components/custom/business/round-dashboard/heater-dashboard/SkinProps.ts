@@ -1,4 +1,4 @@
-import { getThemeType } from '@/business';
+import { getThemeType } from '@src/utils/business';
 
 const themeType = getThemeType();
 // const themeType = 'morandi';

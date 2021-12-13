@@ -1,13 +1,14 @@
+import './style.less';
+
 /*
  * @Author: wrq
  * @Date: 2021-09-23 21:53:58
  * @Description: 按钮组件
  */
 import React from 'react';
-import classNames from 'classnames';
-import './style.less';
-import { noop } from '@/utils';
 import { ThemeType } from '@/global';
+import classNames from 'classnames';
+import { noop } from '@src/utils';
 
 export interface ButtonProps extends StyledProps {
   // 按钮类型（预留）

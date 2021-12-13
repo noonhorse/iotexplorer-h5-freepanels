@@ -6,10 +6,11 @@
  * @LastEditTime:
  */
 
-import React, { FC, useState } from 'react';
-import { Modal } from '@/components/base';
 import { Checkbox, List } from 'antd-mobile';
-import IconChecked from '@/components/base/icon-checked/icon-checked';
+import React, { FC, useState } from 'react';
+
+import IconChecked from '@components/custom/base/icon-checked/icon-checked';
+import { Modal } from '@components/custom/base';
 
 export const arrWeek = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 

@@ -1,16 +1,18 @@
+import './style.less';
+
 /*
  * @Author: wrq
  * @Date: 2021-10-03 22:42:07
  * @Description: 弹出框样式的列表选择器
  */
-import React, { useState, useMemo } from 'react';
-import classNames from 'classnames';
+import React, { useMemo, useState } from 'react';
+import { StyledProps, ThemeType } from '@/global';
+
+import { Action } from 'antd-mobile/es/components/dialog';
 import { Dialog } from 'antd-mobile';
 import { SvgIcon } from '../../common';
-import './style.less';
-import { Action } from 'antd-mobile/es/components/dialog';
-import { StyledProps, ThemeType } from '@/global';
-import { toUnderscores } from '@/utils';
+import classNames from 'classnames';
+import { toUnderscores } from '@src/utils';
 
 export type SelectType = {
   Radio: 'radio';

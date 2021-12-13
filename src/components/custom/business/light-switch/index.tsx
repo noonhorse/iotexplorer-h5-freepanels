@@ -1,13 +1,15 @@
+import './style.less';
+
 /*
  * @Author: wrq
  * @Date: 2021-10-23 20:55:57
  * @Description: 通用调光开关
  */
-import React, { useEffect, useMemo, useRef, useState, TouchEvent } from 'react';
-import classNames from 'classnames';
+import React, { TouchEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { StyledProps, ThemeType } from '@/global';
-import { SvgIcon } from '@/components/common';
-import './style.less';
+
+import { SvgIcon } from '@src/components/custom/common';
+import classNames from 'classnames';
 
 export interface LightSwitchProps extends StyledProps {
   defaultValue?: number; // 0 - 1

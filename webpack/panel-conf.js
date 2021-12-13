@@ -44,15 +44,15 @@ module.exports = {
     panels: [
       ['default', { enable: true }],
     ],
-  // },
-  // 'air-conditioner': {
-  //   enable: true,
-  //   pannels: [
-  //     ['normal', { enable: true }],
-  //     ['blueWhite', { enable: true }],
-  //     ['dark', { enable: true }],
-  //     ['colorful', { enable: true }],
-  //     ['morandi', { enable: true }],
-  //   ],
+  },
+  'air-conditioner': {
+    enable: true,
+    panels: [
+      ['default', { enable: true }],
+      // ['blueWhite', { enable: true }],
+      // ['dark', { enable: true }],
+      // ['colorful', { enable: true }],
+      // ['morandi', { enable: true }],
+    ],
   },
 };

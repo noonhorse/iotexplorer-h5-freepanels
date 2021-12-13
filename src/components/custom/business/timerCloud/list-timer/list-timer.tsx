@@ -6,16 +6,17 @@
  * @LastEditTime:
  */
 
-import React, { FC, useEffect, useImperativeHandle, useState } from 'react';
-import classNames from 'classnames';
-import { Switch } from '@/components/base';
-// @ts-ignore
-import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
-import { arrWeek } from '@/components/business/timerCloud/add-timer/repeat/repeat';
 import {
   ITimerDataBind,
-  ITimerOptions
-} from '@/components/business/timerCloud/timer-cloud';
+  ITimerOptions,
+} from '@components/custom/business/timerCloud/timer-cloud';
+import React, { FC, useEffect, useImperativeHandle, useState } from 'react';
+
+import { Switch } from '@components/custom/base';
+import { arrWeek } from '@components/custom/business/timerCloud/add-timer/repeat/repeat';
+import classNames from 'classnames';
+// @ts-ignore
+import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
 
 export interface ITimer {
   TimerId: string;
@@ -44,7 +45,7 @@ const ListTimer: FC<{
   useImperativeHandle(cRef, () => ({
     reload: () => {
       getDataPage();
-    }
+    },
   }));
 
   const changeStatus = (TimerId: string, Status: number) => {
@@ -54,7 +55,7 @@ const ListTimer: FC<{
       UserID,
       ProductId,
       DeviceName,
-      Status
+      Status,
     };
     sdk
       .requestTokenApi(action, params)
@@ -71,7 +72,7 @@ const ListTimer: FC<{
     const params = {
       UserID,
       ProductId,
-      DeviceName
+      DeviceName,
     };
     sdk
       .requestTokenApi(action, params)
@@ -101,7 +102,7 @@ const ListTimer: FC<{
     const params = {
       DeviceName: sdk.deviceInfo.DeviceName,
       ProductId: sdk.deviceInfo.ProductId,
-      TimerId
+      TimerId,
     };
     sdk
       .requestTokenApi('AppDeleteTimer', params)
@@ -117,7 +118,7 @@ const ListTimer: FC<{
     let result = '';
     try {
       const dataObj = JSON.parse(data) as any;
-      Object.keys(dataObj).forEach(k => {
+      Object.keys(dataObj).forEach((k) => {
         const value = options[k].value_enum
           ? options[k].value_enum[dataObj[k]]
           : dataObj[k];
@@ -158,9 +159,7 @@ const ListTimer: FC<{
           <div className={classNames('timer-list-body')}>
             <span className={'timer'}>{item.TimePoint}</span>
             <span className={'repeat'}>
-              {item.Days.split('').map((iitem, iindex) => {
-                return iitem === '1' ? arrWeek[iindex] + ' ' : '';
-              })}
+              {item.Days.split('').map((iitem, iindex) => (iitem === '1' ? `${arrWeek[iindex]} ` : ''))}
             </span>
             <span className={'switch'}>
               <Switch
@@ -181,7 +180,7 @@ const ListTimer: FC<{
   );
 };
 
-//ListTimer:FC<>.propTypes = {
-//};
+// ListTimer:FC<>.propTypes = {
+// };
 
 export default ListTimer;

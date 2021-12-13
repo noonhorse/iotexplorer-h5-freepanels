@@ -6,12 +6,13 @@
  * @LastEditTime:
  */
 
-import React from 'react';
 import './device.less';
-import classNames from 'classnames';
-import IconTheme from '@src/components/custom/common/icon/icon-theme';
+
 import { DeviceSateContext } from '@src/panels/air-conditioner/deviceStateContext';
-const airDeviceImg = require('./images/air_device.png');
+import IconTheme from '@src/components/custom/common/icon/icon-theme';
+import React from 'react';
+import classNames from 'classnames';
+const airDeviceImg = '//iot-public-1256872341.file.myqcloud.com/d32d101d72d86284906f2ec35848ce0d/1639390360984.png';
 const Device = () => (
     <DeviceSateContext.Consumer>
       {({ deviceData }) => (

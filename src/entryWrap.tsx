@@ -19,7 +19,7 @@ export interface PanelComponentProps extends UserDeviceInfoData, UseDeviceInfoHa
   onSwitchChange?: () => any;
 }
 
-export function entryWrap(Component) {
+export function entryWrap(Component: React.ReactNode, themeClass?: string) {
   function resize() {
     const docEle = window.document.documentElement;
     const windowWidth = docEle.getBoundingClientRect().width;
@@ -34,10 +34,13 @@ export function entryWrap(Component) {
       }
     }
   }
-
+  if (themeClass) {
+    window.document.body.classList.add(themeClass);
+  }
   window.addEventListener('resize', resize);
 
   resize();
+
 
   ReactDOM.render(<Component/>, document.getElementById('app'));
 }

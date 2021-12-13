@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useDeviceInfo } from '@hooks/useDeviceInfo';
+
 import { Panel } from './Panel';
-import { entryWrap } from '@src/entryWrap';
-import { getCountdownStrWithoutDevice } from '@components/FuncFooter';
 import { PanelPageWithMultiFeatures } from '@components/PanelPageWithMultiFeatures';
 import { StatusTip } from '@components/StatusTip';
+import { entryWrap } from '@src/entryWrap';
+import { getCountdownStrWithoutDevice } from '@components/FuncFooter';
+import { useDeviceInfo } from '@hooks/useDeviceInfo';
 
 function App() {
   const [{

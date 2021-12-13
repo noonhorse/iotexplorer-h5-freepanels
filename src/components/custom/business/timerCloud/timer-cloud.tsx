@@ -6,10 +6,12 @@
  * @LastEditTime:
  */
 
-import React, { FC, useEffect, useRef, useState } from 'react';
 import './style.less';
+
+import React, { FC, useEffect, useRef, useState } from 'react';
+
 import AddTimer from './add-timer/add-timer';
-import ListTimer from '@/components/business/timerCloud/list-timer/list-timer';
+import ListTimer from '@components/custom/business/timerCloud/list-timer/list-timer';
 
 export interface ITimerDataBind {
   [key: string]: string | number;
@@ -33,7 +35,7 @@ export interface ITimerCloud {
   options: ITimerOptions;
 }
 
-const TimerCloud: FC<ITimerCloud> = props => {
+const TimerCloud: FC<ITimerCloud> = (props) => {
   const oldTitle = document.title;
   window.document.title = '定时';
   const refList = useRef();
@@ -53,17 +55,15 @@ const TimerCloud: FC<ITimerCloud> = props => {
   //   setIsShowAdd(true);
   // };
 
-  useEffect(() => {
-    return () => {
-      window.document.title = oldTitle;
-    };
+  useEffect(() => () => {
+    window.document.title = oldTitle;
   });
 
   return (
     <>
-      {/*列表*/}
+      {/* 列表*/}
       <ListTimer cRef={refList} dataBind={dataBind} options={options} />
-      {/*添加定时*/}
+      {/* 添加定时*/}
       <AddTimer
         onClose={handleClose}
         visible={isShowAdd}

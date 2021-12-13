@@ -1,7 +1,7 @@
+import { Block } from '@components/custom/layout';
 import React from 'react';
-import dayjs from 'dayjs';
-import { Block } from '@/components/layout';
 import { RecordItemProps } from './index';
+import dayjs from 'dayjs';
 
 const DAY_DESC: string[] = [
   '周日',

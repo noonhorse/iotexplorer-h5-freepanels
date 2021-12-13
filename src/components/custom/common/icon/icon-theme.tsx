@@ -6,14 +6,16 @@
  * @LastEditTime:
  */
 
-import React from 'react';
-import { getThemeType } from '@/business';
-import { px2vw, toUnderscores } from '@/utils';
-import classNames from 'classnames';
-const themeType = getThemeType();
-import '@/themes/icons';
+import '@src/styles/themes/icons';
 import './icon-theme.less';
-import { sign } from 'crypto';
+
+import { px2vw, toUnderscores } from '@src/utils';
+
+import React from 'react';
+import classNames from 'classnames';
+import { getThemeType } from '@src/utils/business';
+
+const themeType = getThemeType();
 export interface IconProps {
   color?: string;
   className?: string;
@@ -35,7 +37,7 @@ const IconTheme = ({
   height,
   size,
   onClick = () => {},
-  isFillNone = false
+  isFillNone = false,
 }: IconProps) => {
   // 根据 theme 类型，渲染不同类型的 icon
   let iconName = `#icon-${kind}`;
@@ -65,7 +67,7 @@ const IconTheme = ({
       className={classNames(
         'icon-theme',
         `icon-theme-${kind}`,
-        `icon-theme-${toUnderscores(themeType || 'normal')}`
+        `icon-theme-${toUnderscores(themeType || 'normal')}`,
       )}
       style={iconStyle()}
       onClick={onClick}

@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
 
 export interface DeviceDataState {
-  deviceData: object;
+  deviceData: any;
   deviceStatus: 0 | 1;
-  templateMap: object;
+  templateMap: any;
   templateList: any[];
 }
 
@@ -64,7 +64,7 @@ function initState(sdk: any) {
 export function useDeviceData(sdk: any) {
   const [state, dispatch] = useReducer(reducer, sdk, initState);
 
-  const onDeviceDataChange = (deviceData: object) => {
+  const onDeviceDataChange = (deviceData: any) => {
     dispatch({
       type: 'data',
       payload: deviceData,

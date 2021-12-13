@@ -1,13 +1,15 @@
+import './style.less';
+
+import { Col, Row } from '@components/custom/layout';
+import { StyledProps, ThemeType } from '@/global';
+
 /**
  * 通用路由跳转按钮
  */
 import React from 'react';
+import { SvgIcon } from '@src/components/custom/common';
 import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
-import { SvgIcon } from '@/components/common';
-import { Row, Col } from '@/components/layout';
-import { StyledProps, ThemeType } from '@/global';
-import './style.less';
 
 const DEFAULT_COL_COUNT = 3;
 

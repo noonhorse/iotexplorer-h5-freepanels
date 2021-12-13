@@ -7,14 +7,13 @@
 /**
  * 获取当前环境的主题类型
  */
-import { HashMap, ThemeType, TemplateData } from '../../global';
+import { HashMap, TemplateData, ThemeType } from '../../global';
+
 import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
 
-export function getThemeType(): ThemeType {
-  // webpack 环境变量
-  const { theme_type } = _BUSINESS_ || {};
+export function getThemeType(themeType?: ThemeType): ThemeType {
   // 非预制的主题类型，则使用默认 normal 主题
-  return theme_type || 'normal';
+  return themeType || 'normal';
 }
 
 /**

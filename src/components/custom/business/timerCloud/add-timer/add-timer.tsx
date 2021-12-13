@@ -6,16 +6,17 @@
  * @LastEditTime:
  */
 
-import React, { FC, useState } from 'react';
-// @ts-ignore
-import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
-import classNames from 'classnames';
 import './style.less';
+
 import { List, PickerView } from 'antd-mobile';
-import Repeat from '@/components/business/timerCloud/add-timer/repeat/repeat';
+import React, { FC, useState } from 'react';
+
+import { ITimer } from '@components/custom/business/timerCloud/list-timer/list-timer';
+import { ITimerDataBind } from '@components/custom/business/timerCloud/timer-cloud';
 import { PickerValue } from 'antd-mobile/2x/es/components/picker-view';
-import { ITimerDataBind } from '@/components/business/timerCloud/timer-cloud';
-import { ITimer } from '@/components/business/timerCloud/list-timer/list-timer';
+import Repeat from '@components/custom/business/timerCloud/add-timer/repeat/repeat';
+import classNames from 'classnames';
+import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
 
 const AddTimer: FC<{
   isEdit?: boolean;
@@ -32,7 +33,7 @@ const AddTimer: FC<{
     const arr: string[] = [];
     for (let i = 0; i < num; i++) {
       const iStr = i.toString();
-      arr.push(iStr.length > 1 ? iStr : '0' + iStr);
+      arr.push(iStr.length > 1 ? iStr : `0${iStr}`);
     }
     return arr;
   };
@@ -52,7 +53,7 @@ const AddTimer: FC<{
       Days: weekNew.join(''),
       TimePoint: timer.join(':'),
       TimerName: Date.now().toString(),
-      Repeat: +weekStr ? 1 : 0 //是否需要循环  0:不需要 1 需要
+      Repeat: +weekStr ? 1 : 0, // 是否需要循环  0:不需要 1 需要
     };
     sdk
       .requestTokenApi('AppCreateTimer', params)
@@ -76,7 +77,7 @@ const AddTimer: FC<{
       <PickerView
         value={timer}
         defaultValue={['08', '01']}
-        onChange={val => {
+        onChange={(val) => {
           setTimer(val);
         }}
         columns={[renderClock(24), renderClock(60)]}
@@ -84,15 +85,15 @@ const AddTimer: FC<{
       />
       <List>
         {children}
-        {/*重复*/}
+        {/* 重复*/}
         <Repeat
           defaultArrWeekVal={value}
-          onConfirm={arrWeekVal => {
+          onConfirm={(arrWeekVal) => {
             setValue(arrWeekVal);
           }}
         />
-        {/*/!*备注*!/*/}
-        {/*<Desc />*/}
+        {/* /!*备注*!/*/}
+        {/* <Desc />*/}
       </List>
       <br />
       <div className={'timer-cloud-footer-bar'}>
@@ -105,7 +106,7 @@ const AddTimer: FC<{
   );
 };
 
-//AddTimer.propTypes = {
-//};
+// AddTimer.propTypes = {
+// };
 
 export default AddTimer;

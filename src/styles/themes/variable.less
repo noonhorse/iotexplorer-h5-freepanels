@@ -1,15 +1,47 @@
-// @import "./var.less";
-
+//  基础变量
 :root {
-  // 背景颜色
-  --global-background-color: #F4F8FB;
-  // 背景渐变色
-  --global-background-image: unset;
-  // 主字体颜色
-  --global-text-color: @color_1;
-  --global-font-size: @font_24;
-  --global-disable-color: #B8C6D3;
-
-  // 激活状态颜色
-  --global-active-color: @color_1;
-}
+    // 公共5度灰 用于个性化主题之外的任意产品的文字或icon等元素。
+    --global-color-darker: #0f0f0f;
+    --global-color-dark: #576273;
+    --global-color-gray: #a6afc2;
+    --global-color-light: #a3a6ab;
+    --global-color-lighter: #b5c4d1;
+    // 黑白
+    --global-color-black: #000000;
+    --global-color-white: #ffffff;
+  }
+  // 字体相关
+  @font_24: 24px;
+  @font_36: 36px;
+  @font_48: 48px;
+  @font_60: 60px;
+  @font_72: 72px;
+  @font_120: 120px;
+  
+  // 行高
+  @lineHeight_33: 33px;
+  @lineHeight_50: 50px;
+  @lineHeight_67: 67px;
+  @lineHeight_72: 72px;
+  @lineHeight_84: 84px;
+  @lineHeight_144: 144px;
+  
+  // 主题色文件
+  // 主题类型 normal-黑白 blueWhite-蓝白 colorful-多彩 dark-暗色 morandi-莫兰迪
+  // 颜色
+  @activeBackground: rgba(0, 0, 0, 0.1);
+  @color-black: #000000;
+  @color-white: #ffffff;
+  
+  @color-background: #222532; // 全局背景色
+  @color-text: #ffffff; // 全局文本默认色
+  @color-primary: #ffffff; // 主色 黑白风之黑
+  @color-compared: #00f0ff; // 对比色 黑白风之白
+  @color-active: #ffffff; // list-prefix
+  @color-disabled: #b5c4d1; // 不可用 默认恢
+  @color-disabled-level2: #d8d8d8; // 不可用 默认恢度2
+  @color-line: #323f4e; // 线颜色
+  @color_1: #000000;
+  @color_2: #0f0f0f;
+  @color_3: #b5c4d1;
+  @color_4: #ffffff;

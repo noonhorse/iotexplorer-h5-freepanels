@@ -6,17 +6,18 @@
  * @LastEditTime:
  */
 
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { DeviceSateContext } from '@src/panels/humidifier/deviceStateContext';
-import classNames from 'classnames';
-import { stringKey } from '@/global';
-import ModalSprayVolume from '@src/panels/humidifier/views/more/features2/modalSprayVolume/modalSprayVolume';
-import { Modal } from '@src/components/custom/base';
-import { enumToArray } from '@/utils';
 import { List, Radio } from 'antd-mobile';
-import { apiControlDeviceData } from '../../../../../../utils/api';
+import React, { useState } from 'react';
+
+import { DeviceSateContext } from '@src/panels/humidifier/deviceStateContext';
 import IconChecked from '@src/components/custom/base/icon-checked/icon-checked';
+import { Modal } from '@src/components/custom/base';
+import ModalSprayVolume from '@src/panels/humidifier/views/more/features2/modalSprayVolume/modalSprayVolume';
+import PropTypes from 'prop-types';
+import { apiControlDeviceData } from '../../../@src/utils/api';
+import classNames from 'classnames';
+import { enumToArray } from '@/utils';
+import { stringKey } from '@/global';
 
 /**
  * 喷雾模式

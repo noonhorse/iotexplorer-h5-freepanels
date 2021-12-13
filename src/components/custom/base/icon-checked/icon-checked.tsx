@@ -6,11 +6,13 @@
  * @LastEditTime:
  */
 
-import React, { Component, Requireable } from 'react';
-import PropTypes from 'prop-types';
-import { SvgIcon } from '@/components/common/icon';
-import classNames from 'classnames';
 import './icon-checked.less';
+
+import React, { Component, Requireable } from 'react';
+
+import PropTypes from 'prop-types';
+import { SvgIcon } from '@src/components/custom/common/icon';
+import classNames from 'classnames';
 
 class IconChecked extends Component {
   static propTypes: { isChecked: Requireable<boolean> };

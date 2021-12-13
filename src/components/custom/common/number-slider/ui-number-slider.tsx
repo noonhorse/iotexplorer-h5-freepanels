@@ -6,13 +6,15 @@
  * @LastEditTime:
  */
 
-import React, { useEffect, useState } from 'react';
 import './style.less';
+
+import React, { useEffect, useState } from 'react';
+
+import IconTheme from '@src/components/custom/common/icon/icon-theme';
 import { Slider } from 'antd-mobile';
 import classNames from 'classnames';
-import { noop } from '@/utils';
-import { SvgIcon } from '@/components/common';
-import IconTheme from '@/components/common/icon/icon-theme';
+import { noop } from '@src/utils';
+
 export interface IUINumberSlider {
   min?: number | 0;
   max?: number | 100;
@@ -32,13 +34,13 @@ const UINumberSlider = (props: IUINumberSlider) => {
     step = 1,
     onChange = noop,
     onAfterChange = noop,
-    defaultValue = 0
+    defaultValue = 0,
   } = props;
   const [value, setValue] = useState(0);
 
   const getFillWidth = () => {
     if (value === 0) {
-      return `0`;
+      return '0';
     }
     return `calc(${(value / max) * 100}% + 13px)`;
   };

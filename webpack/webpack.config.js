@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const panelConfig = require('./panel-conf');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const autoPreFixer = require('autoprefixer');
+const postcssPxToViewport = require('postcss-px-to-viewport');
 const postcss = require('postcss-pxtorem');
-
+const panelConfig = require('./panel-conf');
+const viewportConfig = require('./pxToViewport');
 class ModifiedMiniCssExtractPlugin extends MiniCssExtractPlugin {
   getCssChunkObject(mainChunk) {
     return {};
@@ -21,7 +22,7 @@ module.exports = (env, argv) => {
   const rootPath = path.join(__dirname, '../');
   const srcPath = path.join(rootPath, 'src');
   const outputPath = path.join(rootPath, 'dist', isDevMode ? 'debug' : 'release');
-
+  console.log('build mode', mode, isDevMode);
   const entry = {};
   const theme = 'normal';
   Object.keys(panelConfig).forEach((categoryKey) => {
@@ -48,6 +49,7 @@ module.exports = (env, argv) => {
     }
   });
 
+  console.log('build entry', entry);
   return {
     name: 'iotexplorer-h5-freepanels',
     mode,
@@ -93,6 +95,7 @@ module.exports = (env, argv) => {
                     useESModules: false,
                   },
                 ],
+                ['babel-plugin-styled-components-px2vw', viewportConfig],
               ],
             },
           },
@@ -125,11 +128,18 @@ module.exports = (env, argv) => {
                     rootValue: 46.875,
                     propList: ['*'],
                   }),
+                  postcssPxToViewport(viewportConfig),
                 ],
               },
             },
             {
               loader: 'less-loader',
+            },
+            {
+              loader: 'style-resources-loader',
+              options: {
+                patterns: path.resolve(__dirname, '../src/styles/themes/variable.less'),
+              },
             },
           ],
         },
@@ -142,6 +152,35 @@ module.exports = (env, argv) => {
               loader: 'svgo-loader',
               options: {
                 plugins: [{ removeTitle: true }, { convertStyleToAttrs: true }],
+              },
+            },
+          ],
+          exclude: [path.resolve(__dirname, '../src/themes')],
+        },
+        {
+          test: /\.svg$/,
+          include: [path.resolve(__dirname, '../src/themes')],
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'icon-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [
+                  {
+                    name: 'removeAttrs',
+                    params: {
+                      attrs:
+                        theme === 'dark' || theme === 'colorful'
+                          ? ''
+                          : '(fill|stroke)',
+                    },
+                  },
+                ],
               },
             },
           ],

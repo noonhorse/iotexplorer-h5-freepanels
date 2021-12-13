@@ -1,3 +1,6 @@
+import { StyledProps, ThemeType } from '@/global';
+import { formatPxUnit, px2vw } from '@src/utils';
+
 /*
  * @Author: wrq
  * @Date: 2021-09-19 14:43:29
@@ -5,11 +8,9 @@
  */
 import React from 'react';
 import classNames from 'classnames';
+import { getThemeType } from '@src/utils/business';
 import { isUndefined } from 'lodash';
 import styled from 'styled-components';
-import { formatPxUnit, px2vw } from '../../../utils';
-import { StyledProps, ThemeType } from '@/global';
-import { getThemeType } from '@/business';
 
 const BlockDom = styled.div`
   width: ${(props: BlockDomProps) =>

@@ -1,14 +1,15 @@
-import React from 'react';
-import { useDeviceInfo } from '@hooks/useDeviceInfo';
-import { AirPurifierPanel } from './AirPurifierPanel';
-import { entryWrap } from "@src/entryWrap";
-import { FilterReset } from './FilterReset';
 import {
   HashRouter,
-  Switch,
   Route,
-} from "react-router-dom";
-import { StatusTip } from "@components/StatusTip";
+  Switch,
+} from 'react-router-dom';
+
+import { AirPurifierPanel } from './AirPurifierPanel';
+import { FilterReset } from './FilterReset';
+import React from 'react';
+import { StatusTip } from '@components/StatusTip';
+import { entryWrap } from '@src/entryWrap';
+import { useDeviceInfo } from '@hooks/useDeviceInfo';
 
 function App() {
   const [{

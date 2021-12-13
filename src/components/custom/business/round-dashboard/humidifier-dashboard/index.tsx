@@ -1,10 +1,11 @@
-import React from 'react';
-import { RoundDashboard } from '../components/round-dashboard';
-import { CurrentSkinProps } from './SkinProps';
-import classNames from 'classnames';
 import './style.less';
 
-import { getThemeType } from '@/business';
+import { CurrentSkinProps } from './SkinProps';
+import React from 'react';
+import { RoundDashboard } from '../components/round-dashboard';
+import classNames from 'classnames';
+import { getThemeType } from '@src/utils/business';
+
 const themeType = getThemeType();
 
 interface dashboardProps {

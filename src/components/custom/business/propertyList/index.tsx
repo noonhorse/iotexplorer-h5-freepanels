@@ -1,11 +1,12 @@
+import { Col, Row } from '../../layout';
 /*
  * @Author: wrq
  * @Date: 2021-09-20 10:40:50
  * @Description: 通用布局样式 以每行为准，均分
  */
 import React, { useMemo } from 'react';
-import { Row, Col } from '../../layout';
-import { groupArrayItems } from '../../../utils';
+
+import { groupArrayItems } from '@src/utils';
 
 // 每行最大允许列数
 const MAX_COL_COUNT = 12;

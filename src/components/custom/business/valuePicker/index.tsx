@@ -1,16 +1,18 @@
+import './style.less';
+
+import { PickerProps, PickerValue } from 'antd-mobile/es/components/picker';
+import { PickerView, Popup } from 'antd-mobile';
 /*
  * @Author: wrq
  * @Date: 2021-10-04 10:03:27
  * @Description: 数值选择器
  */
 import React, { useMemo, useState } from 'react';
-import classNames from 'classnames';
-import { Popup, PickerView } from 'antd-mobile';
-import { PickerProps, PickerValue } from 'antd-mobile/es/components/picker';
-import { formatPxUnit } from '../../../utils';
-import { noop } from '../../../utils';
+
 import { StyledProps } from '@/global';
-import './style.less';
+import classNames from 'classnames';
+import { formatPxUnit } from '@src/utils';
+import { noop } from '@src/utils';
 
 export interface ValueSelectProps extends StyledProps {
   visible?: boolean;

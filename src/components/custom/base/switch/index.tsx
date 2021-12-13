@@ -1,14 +1,16 @@
+import './style.less';
+
 /*
  * @Author: wrq
  * @Date: 2021-09-19 21:14:28
  * @Description: 通用开关组件
  */
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import { noop } from '../../../utils';
 import { StyledProps, ThemeType } from '@/global';
-import { toUnderscores } from '../../../utils';
-import './style.less';
+
+import classNames from 'classnames';
+import { noop } from '@src/utils';
+import { toUnderscores } from '@src/utils';
 
 export interface SwitchProps extends StyledProps {
   // 默认是否选中

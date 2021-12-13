@@ -1,13 +1,15 @@
+import './style.less';
+
+import { MaskWrapperProps, withMask } from '../../common/mask';
+
 /*
  * @Author: wrq
  * @Date: 2021-09-19 22:41:27
  * @Description: 对话框组件
  */
 import React from 'react';
-import { withMask, MaskWrapperProps } from '../../common/mask';
+import { noop } from '@src/utils';
 import styled from 'styled-components';
-import './style.less';
-import { noop } from '../../../utils';
 
 const Main = styled.div`
   z-index: ${(props: MaskWrapperProps) => props.zIndex || 999};

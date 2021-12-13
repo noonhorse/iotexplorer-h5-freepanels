@@ -4,12 +4,12 @@
  * @Description:
  */
 import React from 'react';
-import { getThemeType } from '@/business';
+import { getThemeType } from '@src/utils/business';
 import { toUnderscores } from '.';
 
 export function withTheme(WrappedComponent: React.ReactNode) {
   // 给 body 增加主题标识的 className
-  const body = document.body;
+  const { body } = document;
   console.log('get bodyed....');
   const theme = getThemeType();
   body.classList.add(`theme_${toUnderscores(theme)}`);

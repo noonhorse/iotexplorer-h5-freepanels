@@ -1,19 +1,20 @@
+import '../style.less';
+import './theme-normal.less';
+import '../theme.less';
+
+// 默认 黑白色主题
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
+import { DeviceSateContext } from '../deviceStateContext';
+import { Home } from '../views/home/home';
+import { More } from '../views/more/more';
+import Timer from '../views/timer/timer';
+import { entryWrap } from '@src/entryWrap';
 import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
-import { DeviceSateContext } from './deviceStateContext';
 import { useDeviceData } from '@src/hooks/useDeviceData';
-import { Home } from './views/home/home';
 
-import '../../themes/global.less';
-import './style.less';
-import './theme.less';
-
-import { withTheme } from '@src/utils/with-theme';
-import { More } from '@src/panels/air-conditioner/views/more/more';
-import Timer from '@src/panels/air-conditioner/views/timer/timer';
-
+const themeColor = 'theme_normal'; // 主题色
 function App() {
   const isBluetoothDevice = true;
   // eslint-disable-next-line no-undef
@@ -31,7 +32,7 @@ function App() {
     basename += '/live';
   }
 
-  const [state, { onDeviceDataChange, onDeviceStatusChange }] =    useDeviceData(sdk);
+  const [state, { onDeviceDataChange, onDeviceStatusChange }] = useDeviceData(sdk);
 
   // 获取设备模型数据
   const getDeviceData = (deviceId) => {
@@ -181,4 +182,5 @@ function App() {
   );
 }
 
-ReactDOM.render(withTheme(<App />), document.getElementById('app'));
+entryWrap(App, themeColor);
+// ReactDOM.render(withTheme(<App />), document.getElementById('app'));

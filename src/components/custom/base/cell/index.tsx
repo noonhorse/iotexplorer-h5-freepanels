@@ -1,13 +1,15 @@
+import './style.less';
+
 /*
  * @Author: wrq
  * @Date: 2021-09-19 17:08:08
  * @Description: 单元格
  */
 import React, { useRef } from 'react';
-import { noop } from '../../../utils';
-import { addClass, removeClass } from '../../../utils/dom';
+import { addClass, removeClass } from '@src/utils/dom';
+
 import { StyledProps } from '@/global';
-import './style.less';
+import { noop } from '@src/utils';
 
 export interface CellProps extends StyledProps {
   // 左侧图标

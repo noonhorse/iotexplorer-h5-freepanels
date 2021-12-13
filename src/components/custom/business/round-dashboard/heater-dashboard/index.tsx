@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { RoundDashboard } from '../components/round-dashboard';
-import { SvgIcon } from '@/components/common/icon';
-import { CurrentSkinProps } from './SkinProps';
-
-import classNames from 'classnames';
 import './style.less';
 
-import { getThemeType } from '@/business';
+import React, { useState } from 'react';
+
+import { CurrentSkinProps } from './SkinProps';
+import { RoundDashboard } from '../components/round-dashboard';
+import { SvgIcon } from '@src/components/custom/common/icon';
+import classNames from 'classnames';
+import { getThemeType } from '@src/utils/business';
+
 const themeType = getThemeType();
 
 interface dashboardProps {

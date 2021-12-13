@@ -1,3 +1,9 @@
+import './style.less';
+import '@src/styles/themes/icons';
+
+import { StyledProps, ThemeType } from '@/global';
+import { px2vw, toUnderscores } from '@src/utils';
+
 /*
  * @Author: wrq
  * @Date: 2021-10-02 09:42:35
@@ -5,12 +11,7 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-import { toUnderscores } from '@/utils';
-import { getThemeType } from '@/business';
-import { px2vw } from '@/utils';
-import './style.less';
-import '@/themes/icons';
-import { ThemeType, StyledProps } from '@/global';
+import { getThemeType } from '@src/utils/business';
 
 const ENVIRO_THEME = getThemeType();
 
@@ -50,7 +51,7 @@ export function SvgIcon(props: SvgIconProps) {
     }
 
     if (props.gradientId) {
-      style.fill = 'url(#' + props.gradientId + ')';
+      style.fill = `url(#${props.gradientId})`;
     }
     return style;
   };
@@ -62,7 +63,7 @@ export function SvgIcon(props: SvgIconProps) {
         'svg-icon',
         `svg-${props.name}`,
         `icon-theme-${toUnderscores(theme || 'normal')}`,
-        props.className
+        props.className,
       )}
       style={iconStyle()}
       fill={'red'}
