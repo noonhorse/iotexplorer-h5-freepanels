@@ -75,8 +75,6 @@ declare interface ThemeProps {
   theme?: ThemeType;
 }
 
-declare module 'qcloud-iotexplorer-h5-panel-sdk';
-
 export interface stringKey {
   [key: string]: string;
 }

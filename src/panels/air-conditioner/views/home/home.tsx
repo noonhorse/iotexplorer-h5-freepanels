@@ -6,7 +6,6 @@ import React from 'react';
 import { ToolsBar } from '@src/panels/air-conditioner/views/home/components/tools-bar/tools-bar';
 import classNames from 'classnames';
 import { getThemeType } from '@src/utils/business';
-// @ts-ignore
 import sdk from 'qcloud-iotexplorer-h5-panel-sdk';
 const themeType = getThemeType();
 export function Home() {
@@ -16,7 +15,7 @@ export function Home() {
         return [
           <ToolsBar key={'toolsBar'} />,
           <Power key={'power'} />,
-          <Environment key={'environment'} />
+          <Environment key={'environment'} />,
         ];
       case 'blueWhite':
       case 'dark':
@@ -25,13 +24,13 @@ export function Home() {
         return [
           <Power key={'power'} />,
           <Environment key={'environment'} />,
-          <ToolsBar key={'toolsBar'} />
+          <ToolsBar key={'toolsBar'} />,
         ];
       default:
         return [
           <ToolsBar key={'toolsBar'} />,
           <Power key={'power'} />,
-          <Environment key={'environment'} />
+          <Environment key={'environment'} />,
         ];
     }
   };
@@ -42,7 +41,7 @@ export function Home() {
         <article
           className={classNames(
             'home',
-            sdk.deviceData.power_switch === 0 && 'power-off'
+            sdk.deviceData.power_switch === 0 && 'power-off',
           )}
         >
           <Device />

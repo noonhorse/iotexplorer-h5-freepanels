@@ -55,6 +55,9 @@
       ],
       "@underscore": [
         "./src/vendor/underscore/index"
+      ],
+      "@/global": [
+        "./global.d.ts"
       ]
     }
   },

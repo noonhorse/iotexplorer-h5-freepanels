@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -10,6 +10,7 @@ const postcssPxToViewport = require('postcss-px-to-viewport');
 const postcss = require('postcss-pxtorem');
 const panelConfig = require('./panel-conf');
 const viewportConfig = require('./pxToViewport');
+
 class ModifiedMiniCssExtractPlugin extends MiniCssExtractPlugin {
   getCssChunkObject(mainChunk) {
     return {};
@@ -22,9 +23,11 @@ module.exports = (env, argv) => {
   const rootPath = path.join(__dirname, '../');
   const srcPath = path.join(rootPath, 'src');
   const outputPath = path.join(rootPath, 'dist', isDevMode ? 'debug' : 'release');
-  console.log('build mode', mode, isDevMode);
+  console.log('build mode', mode, isDevMode, 'outPath:', outputPath);
+
   const entry = {};
   const theme = 'normal';
+
   Object.keys(panelConfig).forEach((categoryKey) => {
     const { enable, panels } = panelConfig[categoryKey];
 
@@ -48,8 +51,8 @@ module.exports = (env, argv) => {
       });
     }
   });
-
   console.log('build entry', entry);
+
   return {
     name: 'iotexplorer-h5-freepanels',
     mode,
@@ -68,6 +71,7 @@ module.exports = (env, argv) => {
       contentBase: outputPath,
       compress: true,
       port: 9000,
+      watchContentBase: true,
       disableHostCheck: true, //  新增该配置项
       // hot: true,
       https: true,
@@ -227,12 +231,6 @@ module.exports = (env, argv) => {
       new ModifiedMiniCssExtractPlugin({
         filename: isDevMode ? '[name].css' : '[name].[contenthash:10].css',
       }),
-      // new OptimizeCSSAssetsPlugin({
-      //   cssProcessorOptions: {
-      //     discardComments: { removeAll: true },
-      //     autoprefixer: { disable: true },
-      //   },
-      // }),
     ].filter(Boolean),
     // stats: { children: false },
   };

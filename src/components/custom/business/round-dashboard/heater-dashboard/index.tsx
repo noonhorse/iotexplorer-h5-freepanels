@@ -17,19 +17,18 @@ interface dashboardProps {
 const HeaterDashboard: React.FC<dashboardProps> = (props) => {
   const { value, dashboardStatus } = props;
 
-  const skinProps = (CurrentSkinProps as any)[dashboardStatus]
+  const skinProps = (CurrentSkinProps as any)[dashboardStatus];
 
   const [number, setNumber] = useState(value);
 
   const handleClick = () => {
-    setNumber(number + 1)
-  }
+    setNumber(number + 1);
+  };
 
   // 描述信息 关机/开机
-  const renderDesWord = (dashboardStatus: string) => {
-    return dashboardStatus === 'shutdown' ? 
-      <div className="shutdown">已关机</div>
-      : (
+  const renderDesWord = (dashboardStatus: string) => (dashboardStatus === 'shutdown'
+    ? <div className="shutdown">已关机</div>
+    : (
         <div className="initiate">
           <SvgIcon name="icon-lock-close" color="red" width={75} height={84} />
           <div className="number">
@@ -38,8 +37,7 @@ const HeaterDashboard: React.FC<dashboardProps> = (props) => {
           </div>
           <div className="title">当前温度</div>
         </div>
-      )
-    }
+    ));
 
   return (
     <div className={classNames('heater-dashboard-wrap', themeType)}>
@@ -56,6 +54,6 @@ const HeaterDashboard: React.FC<dashboardProps> = (props) => {
       {renderDesWord(dashboardStatus)}
     </div>
   );
-}
+};
 
 export default HeaterDashboard;

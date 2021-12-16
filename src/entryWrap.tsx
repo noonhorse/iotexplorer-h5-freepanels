@@ -35,12 +35,12 @@ export function entryWrap(Component: React.ReactNode, themeClass?: string) {
     }
   }
   if (themeClass) {
+    window.h5PanelSdk.theme = themeClass;
     window.document.body.classList.add(themeClass);
   }
   window.addEventListener('resize', resize);
 
   resize();
-
 
   ReactDOM.render(<Component/>, document.getElementById('app'));
 }
